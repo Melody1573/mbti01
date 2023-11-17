@@ -41,7 +41,7 @@ public class tools {
         map.put("E", 0);
         map.put("I", 0);
     }
-1
+
     public static void initResult(String url,String answerEnd) {
         ArrayList<Result> results = new ArrayList<>();
         //results.add();
