@@ -101,6 +101,7 @@ public class ServiceImpl implements Service {
             chars[3 ] = 'P';
         }
         System.out.println(list);
+        list.clear();
         return ""+chars[0]+chars[1]+chars[2]+chars[3];
     }
 }

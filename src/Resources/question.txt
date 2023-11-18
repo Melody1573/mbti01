@@ -964,6 +964,5 @@
   title:"在下列每一对词语中，哪一个词语更合你心意",
   options:[{title:"实际",score:"S"},{title:"创新",score:"N"}]
  }
-
 ]
 
