@@ -22,4 +22,12 @@ public class Result {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "num='" + num + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

@@ -1,6 +1,5 @@
 package com.javakc.mbti.action;
 
-import com.javakc.mbti.dao.imp.DaoImpl;
 import com.javakc.mbti.service.imp.ServiceImpl;
 import com.javakc.mbti.tools.tools;
 import com.javakc.mbti.vo.Question;
@@ -51,6 +50,6 @@ public class App {
         //System.out.println(answer);
         String answerEnd = service.parseResult(answer);
         //System.out.println(answerEnd);
-        tools.initResult("",answerEnd);
+        tools.initResult("C:\\Users\\Luo\\Desktop\\result1.txt", answerEnd);
     }
 }
