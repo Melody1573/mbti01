@@ -6,6 +6,10 @@ import com.javakc.mbti.vo.Question;
 import com.javakc.mbti.vo.Result;
 
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,27 +52,35 @@ public class tools {
     }
 
     public static void initResult(String url,String answerEnd) {
+        Path path = Paths.get(url);
+        String str = null;
+        try {
+            str = Files.readString(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //获取最终结果字符串
 
         //获取结果文档字符串
-        String str = "";
-        FileReader fileR = null;
-        try {
-            fileR = new FileReader(url);
-            //定义一个数组容器存放每一次的临时值，并定义每次的流量大小
-            char[] chars = new char[1024];
-            //定义一个长度字符控制每次输出的值与读取的值一致
-            int len;
-            //判断若通过read得到的值不为-1时继续循环并输出
-            while ((len = fileR.read(chars)) != -1) {
-                //解码输出，输出长度为读取的长度，这样不会出现空字符
-                //System.out.print(str = new String(chars, 0, len));
-                str = new String(chars, 0, len);
-            }
-            fileR.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //String str = "";
+        //FileReader fileR = null;
+        //try {
+        //    fileR = new FileReader(url);
+        //    //定义一个数组容器存放每一次的临时值，并定义每次的流量大小
+        //    char[] chars = new char[1024];
+        //    //定义一个长度字符控制每次输出的值与读取的值一致
+        //    int len;
+        //    //判断若通过read得到的值不为-1时继续循环并输出
+        //    while ((len = fileR.read(chars)) != -1) {
+        //        //解码输出，输出长度为读取的长度，这样不会出现空字符
+        //        //System.out.print(str = new String(chars, 0, len));
+        //        str = new String(chars, 0, len);
+        //    }
+        //    fileR.close();
+        //} catch (Exception e) {
+        //    e.printStackTrace();
+        //}
         //将结果文档转化为String
         //System.out.println(str);
         //将文档内容转换为Result对象

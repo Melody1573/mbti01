@@ -50,6 +50,6 @@ public class App {
         //System.out.println(answer);
         String answerEnd = service.parseResult(answer);
         //System.out.println(answerEnd);
-        tools.initResult("C:\\Users\\Luo\\Desktop\\result1.txt", answerEnd);
+        tools.initResult("C:\\Users\\Luo\\Desktop\\result.txt", answerEnd);
     }
 }

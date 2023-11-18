@@ -20,7 +20,8 @@ public class ServiceImpl implements Service {
     */
     @Override
     public List<Question> readQuestion() {
-        String strDao = "C:\\Users\\Luo\\Desktop\\question.txt";
+        String strDao = "C:\\Users\\Luo\\Desktop\\question1.txt";
+        //String strDao = "C:\\Users\\Luo\\Desktop\\question.txt";
         DaoImpl dao = new DaoImpl();
         String str = dao.read(strDao);
         Gson gson = new Gson();
