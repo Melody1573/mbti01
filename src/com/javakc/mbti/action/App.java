@@ -19,6 +19,9 @@ public class App {
         //@tools.initMap(map);
         List<String> answer = new ArrayList();
         Scanner scanner = new Scanner(System.in);
+        System.out.print("请输入用户名：");
+        String next = scanner.next();
+        System.out.println("欢迎你" + next + "\n");
         for (int i = 0; i < list.size(); i++) {
             while (true) {
                 //输出题目
