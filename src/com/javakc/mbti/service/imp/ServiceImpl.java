@@ -20,7 +20,6 @@ public class ServiceImpl implements Service {
     */
     @Override
     public List<Question> readQuestion() {
-        //String strDao = "C:\\Users\\Luo\\Desktop\\question1.txt";
         String strDao = "src/Resources/question.txt";
         DaoImpl dao = new DaoImpl();
         String str = dao.read(strDao);
@@ -101,7 +100,6 @@ public class ServiceImpl implements Service {
         }else{
             chars[3 ] = 'P';
         }
-        //System.out.println(Arrays.toString(chars));
         System.out.println(list);
         return ""+chars[0]+chars[1]+chars[2]+chars[3];
     }
