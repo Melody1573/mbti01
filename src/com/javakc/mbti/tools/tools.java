@@ -140,9 +140,9 @@ public class tools {
                 System.out.println("A." + list.get(i).getOptions().get(0).getTitle());
                 System.out.println("B." + list.get(i).getOptions().get(1).getTitle());
                 //输入答案
-                //String sc = scanner.next();
+                String sc = scanner.next();
                 //自动输入
-                String sc = (new Random().nextInt(2) == 0? "A" : "B");
+                //String sc = (new Random().nextInt(2) == 0? "A" : "B");
                 if ("A".equalsIgnoreCase(sc)) {
                     //列表的方式
                     answer.add(i, list.get(i).getOptions().get(0).getScore());
@@ -151,6 +151,12 @@ public class tools {
                     answer.add(i, list.get(i).getOptions().get(1).getScore());
                     break;
                 } else if ("cx".equalsIgnoreCase(sc)) {
+                    if (iStart){
+                        i--;
+                        System.out.println("请答完该题再进行重答");
+                        iStart = false;
+                        break;
+                    }
                     i -= 2;
                     if (i < -1) {
                         i = -1;
@@ -159,6 +165,12 @@ public class tools {
                     }
                     break;
                 } else if (sc.length() >= 3 && "cx".equalsIgnoreCase(sc.substring(0, 2))) {
+                    if (iStart){
+                        i--;
+                        System.out.println("请答完该题再进行重答");
+                        iStart = false;
+                        break;
+                    }
                     //获取用户输入的题号
                     StringBuffer num = new StringBuffer();
                     int number = 1;
