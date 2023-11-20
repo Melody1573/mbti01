@@ -9,7 +9,7 @@ import java.util.*;
 
 public class App {
     public static boolean[] endTime = {false};
-
+    public static String name;
     public static void main(String[] args) {
         Start();
     }
@@ -28,8 +28,8 @@ public class App {
 
         //用户名功能
         System.out.print("请输入用户名：");
-        String next = scanner.next();
-        System.out.println("欢迎你" + next + "\n");
+        name = scanner.next();
+        System.out.println("欢迎你" + name + "\n");
 
         //显示主页面选择功能
         while (off) {
@@ -72,6 +72,10 @@ public class App {
                     } else {
                         tools.doWork(list, scanner, answer, service);
                     }
+                    // 停止定时器
+                    if (timer != null) {
+                        timer.cancel();
+                    }
                     rand = false;
                     break;
                 case 3:
@@ -79,15 +83,19 @@ public class App {
                     //点击功能后可选择开启/关闭记时功能,若开启后下一次答题会出现时间限制
                     time = !time;
                     break;
+                case 4:
+                    System.out.println("输入用户名");
+                    name = scanner.next();
+                    System.out.printf("【%s】设定成功",name);
+                    break;
+                case 5:
+                    //获取历史记录
+                    tools.disHistory();
+                    break;
                 default:
-                    // 停止定时器
-                    if (timer != null) {
-                        timer.cancel();
-                    }
                     off = false;
                     break;
             }
         }
-
     }
 }
