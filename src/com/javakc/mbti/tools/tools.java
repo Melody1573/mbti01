@@ -7,10 +7,9 @@ import com.javakc.mbti.service.imp.ServiceImpl;
 import com.javakc.mbti.vo.Question;
 import com.javakc.mbti.vo.Result;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -91,8 +90,12 @@ public class tools {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
                 //使用IO流保存文件
                 FileOutputStream fileOutputStream = new FileOutputStream("save\\MBTI职业性格测试" + sdf.format(date.getTime()) + App.name + ".txt");
+                FileOutputStream fileOutputStream1 = new FileOutputStream("src/Resources/history.txt",true);
                 fileOutputStream.write((results.get(num).getNum() + "\n").getBytes());
                 fileOutputStream.write(results.get(num).getContent().getBytes());
+                fileOutputStream1.write(("MBTI职业性格测试" + sdf.format(date.getTime()) + App.name + ".txt\n").getBytes());
+                fileOutputStream.close();
+                fileOutputStream1.close();
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -140,9 +143,9 @@ public class tools {
                 System.out.println("A." + list.get(i).getOptions().get(0).getTitle());
                 System.out.println("B." + list.get(i).getOptions().get(1).getTitle());
                 //输入答案
-                String sc = scanner.next();
+                //String sc = scanner.next();
                 //自动输入
-                //String sc = (new Random().nextInt(2) == 0? "A" : "B");
+                String sc = (new Random().nextInt(2) == 0? "A" : "B");
                 if ("A".equalsIgnoreCase(sc)) {
                     //列表的方式
                     answer.add(i, list.get(i).getOptions().get(0).getScore());
@@ -219,11 +222,9 @@ public class tools {
     //查询历史记录
     public static void disHistory(){
         try {
-            Path p1 = Paths.get("save");
-            Stream<Path> ps= null;
-            ps = Files.list(p1);
-            //循环输出work目录中的子文件
-            ps.forEach(p->System.out.println(p));
+            Path path = Paths.get("src/Resources/history.txt");
+            final String s = Files.readString(path, StandardCharsets.UTF_8);
+            System.out.println(s);
         } catch (IOException e) {
             System.out.println(e);
         }
