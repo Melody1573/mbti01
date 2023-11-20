@@ -90,7 +90,7 @@ public class App {
                     break;
                 case 5:
                     //获取历史记录
-                    tools.disHistory();
+                    tools.disHistory(scanner);
                     break;
                 default:
                     off = false;
